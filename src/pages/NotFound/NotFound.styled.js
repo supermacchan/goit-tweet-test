@@ -16,5 +16,5 @@ export const Section = styled.section`
 export const Message = styled.h2`
     margin: 50px 0;
 
-    color: var(--dark-accent-text-color)
+    color: var(--dark-accent-text-color);
 `
