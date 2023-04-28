@@ -12,7 +12,7 @@ export const Img = styled.img`
 `
 
 export const Greeting = styled.h2`
-    margin: 20px 0 22px 0;
+    margin: 20px 0 0 0;
 
     color: var(--dark-accent-text-color);
     font-size: 32px;

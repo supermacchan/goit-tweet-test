@@ -1,10 +1,17 @@
 import { Link } from "react-router-dom";
+import { 
+    Container,
+    Title,
+    Text,
+    Encouragement,
+    Button
+} from "./About.styled";
 
 const About = () => {
     return (
-        <>
-            <h3>Welcome to GoIT Tweets!</h3>
-            <p>
+        <Container>
+            <Title>Welcome to GoIT Tweets!</Title>
+            <Text>
                 Here you can follow skilled developers and check their
                 ITweets for some useful tips and tricks that can help you
                 improve your programming skills. At this time, it is not
@@ -12,11 +19,16 @@ const About = () => {
                 only reading is allowed. But we are working on expanding 
                 and adding this functionality in the future, so please 
                 stay tuned!
-            </p>
+            </Text>
             {/* the part below will be rendered if auth */}
-            <h4>Are you ready to browse?</h4>
-            <Link to="/tweets">Yes! Show me some ITweets!</Link>
-        </>
+            <Encouragement>Are you ready to browse?</Encouragement>
+            <Link to="/tweets" style={{textDecoration: "none"}}>
+                <Button>
+                    Yes! Show me some ITweets!
+                </Button>
+            </Link>
+            
+        </Container>
     )
 }
 
