@@ -3,6 +3,12 @@ import bg from '../../images/background-image.jpg';
 
 export const Wrapper = styled.div`
     padding-top: 68px;
+
+    background-image: url(${bg});
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
 `
 
 export const Section = styled.div`
@@ -10,12 +16,6 @@ export const Section = styled.div`
     flex-direction: column;
     align-items: center;
     padding: 20px 0;
-
-    background-image: url(${bg});
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;
-    background-size: cover;
 `
 
 export const List = styled.ul`

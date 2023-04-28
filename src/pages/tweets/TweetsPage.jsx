@@ -9,23 +9,23 @@ const TweetsPage = () => {
     return (
         <Wrapper>
             <Header />
-                <Section>
-                    <Filter />
-                    <List>
-                        {users.map(user => {
-                            return (
-                                <TweetCard
-                                    key={user.id}
-                                    name={user.user}
-                                    avatar={user.avatar}
-                                    tweets={user.tweets}
-                                    followers={user.followers}
-                                />
-                            )   
-                        })}
-                    </List>
-                    <Button type="button">Load More</Button>
-                </Section>
+            <Section>
+                <Filter />
+                <List>
+                    {users.map(user => {
+                        return (
+                            <TweetCard
+                                key={user.id}
+                                name={user.user}
+                                avatar={user.avatar}
+                                tweets={user.tweets}
+                                followers={user.followers}
+                             />
+                        )   
+                    })}
+                </List>
+                <Button type="button">Load More</Button>
+            </Section>
         </Wrapper>
     )
 }
