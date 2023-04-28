@@ -1,16 +1,13 @@
 {
   "files": {
-    "main.css": "/goit-tweet-test/static/css/main.073c9b0a.css",
-    "main.js": "/goit-tweet-test/static/js/main.f5e36530.js",
-    "static/js/787.ab091e4e.chunk.js": "/goit-tweet-test/static/js/787.ab091e4e.chunk.js",
-    "static/media/logo.svg": "/goit-tweet-test/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "main.css": "/goit-tweet-test/static/css/main.e6c13ad2.css",
+    "main.js": "/goit-tweet-test/static/js/main.2e85bc09.js",
     "index.html": "/goit-tweet-test/index.html",
-    "main.073c9b0a.css.map": "/goit-tweet-test/static/css/main.073c9b0a.css.map",
-    "main.f5e36530.js.map": "/goit-tweet-test/static/js/main.f5e36530.js.map",
-    "787.ab091e4e.chunk.js.map": "/goit-tweet-test/static/js/787.ab091e4e.chunk.js.map"
+    "main.e6c13ad2.css.map": "/goit-tweet-test/static/css/main.e6c13ad2.css.map",
+    "main.2e85bc09.js.map": "/goit-tweet-test/static/js/main.2e85bc09.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.f5e36530.js"
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.2e85bc09.js"
   ]
 }
