@@ -1,4 +1,5 @@
 import WelcomeForm from "components/WelcomeForm/WelcomeForm";
+import WelcomeMessage from "components/WelcomeMessage/WelcomeMessage";
 
 const HomePage = () => {
     return (
@@ -6,6 +7,7 @@ const HomePage = () => {
         <div>
             <section>
                 <WelcomeForm />
+                <WelcomeMessage />
                 {/* <WelcomeForm /> || <WelcomeMessage /> - depending on auth */}
             </section>
             <section>
