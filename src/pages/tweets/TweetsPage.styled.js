@@ -6,6 +6,10 @@ export const Wrapper = styled.div`
 `
 
 export const Section = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     background-image: url(${bg});
     background-repeat: no-repeat;
     background-position: center;
@@ -20,10 +24,8 @@ export const List = styled.ul`
     gap: 20px;
 
     list-style: none;
-    margin: 0 auto;
+    margin: 0;
     padding: 0;
-
-    
 `
 
 export const Button = styled.button`
