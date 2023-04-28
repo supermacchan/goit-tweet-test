@@ -1,5 +1,5 @@
 import Header from "components/Header/Header";
-
+import Filter from "components/Filter/Filter";
 import Footer from "components/Footer/Footer";
 
 const TweetsPage = () => {
@@ -8,7 +8,7 @@ const TweetsPage = () => {
         <div>
             <Header />
             <section>
-                {/* <Filter /> */}
+                <Filter />
                 {/* tweet cards */}
                 <ul>
 
