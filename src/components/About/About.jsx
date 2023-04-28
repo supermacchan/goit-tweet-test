@@ -15,7 +15,6 @@ const About = () => {
             </p>
             {/* the part below will be rendered if auth */}
             <h4>Are you ready to browse?</h4>
-            {/* will be a Link */}
             <Link to="/tweets">Yes! Show me some ITweets!</Link>
         </>
     )

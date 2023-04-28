@@ -4,7 +4,6 @@ import avatar from "../../images/avatar.png";
 const Header = () => {
     return (
         <header>
-            {/* will be a Link */}
             <Link to="/">Back to Home Page</Link>
             {/* user info */}
             <div>

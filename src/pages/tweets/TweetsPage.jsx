@@ -5,8 +5,6 @@ import TweetCard from "components/TweetCard/TweetCard";
 // temp
 import users from "../../temp/mockapi.json";
 
-console.log(users);
-
 const TweetsPage = () => {
     return (
         // wrapper with a bg
