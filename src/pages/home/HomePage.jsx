@@ -1,7 +1,7 @@
 import WelcomeForm from "components/WelcomeForm/WelcomeForm";
 import WelcomeMessage from "components/WelcomeMessage/WelcomeMessage";
 import About from "components/About/About";
-import Footer from "components/Footer/Footer";
+// import Footer from "components/Footer/Footer";
 
 const HomePage = () => {
     return (
@@ -15,7 +15,7 @@ const HomePage = () => {
             <section>
                 <About />
             </section>
-            <Footer />
+            {/* <Footer /> */}
         </div>
     )
 }

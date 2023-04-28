@@ -1,7 +1,7 @@
 import Header from "components/Header/Header";
 import Filter from "components/Filter/Filter";
 import TweetCard from "components/TweetCard/TweetCard";
-import Footer from "components/Footer/Footer";
+// import Footer from "components/Footer/Footer";
 
 // temp
 import users from "../../temp/mockapi.json";
@@ -31,7 +31,7 @@ const TweetsPage = () => {
                 </ul>
                 <button type="button">Load More</button>
             </section>
-            <Footer />
+            {/* <Footer /> */}
         </div>
     )
 }
