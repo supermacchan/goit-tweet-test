@@ -4,6 +4,7 @@ import Layout from "./Layout/Layout";
 
 const HomePage = lazy(() => import("../pages/home/HomePage"));
 const TweetsPage = lazy(() => import("../pages/tweets/TweetsPage"));
+const NotFound = lazy(() => import("../pages/NotFound/NotFound"));
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
         <Route path="/tweets" element={<TweetsPage />}/>
-        {/* <Route path="*" element={<NotFound />} /> */}
+        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
   );
