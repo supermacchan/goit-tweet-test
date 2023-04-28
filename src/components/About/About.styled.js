@@ -47,8 +47,10 @@ export const Button = styled.p`
     background-color: var(--main-btn-color);
     color: var(--dark-text-color);
 
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
     &:hover,
     &:focus {
-        border-color: var(--active-btn-color);
+        background-color: var(--active-btn-color);
     }
 `
