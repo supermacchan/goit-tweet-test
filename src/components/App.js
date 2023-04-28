@@ -1,10 +1,13 @@
-
+import HomePage from "pages/home/HomePage";
+import TweetsPage from "pages/tweets/TweetsPage";
 
 function App() {
   return (
-    <div className="App">
-      <p>Let's begin</p>
-    </div>
+    <>
+      {/* temp */}
+      <HomePage />
+      <TweetsPage />
+    </>
   );
 }
 
