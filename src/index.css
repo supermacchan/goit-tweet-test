@@ -9,3 +9,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+:root {
+  --main-bg-color: #fff;
+  --card-bg-color: #5736A3;
+  --main-btn-color: #EBD8FF;
+  --active-btn-color: #5CD3A8;
+  --dark-text-color: #373737;
+  --light-text-color: #EBD8FF;
+  --light-accent-text-color: #5CD3A8;
+  --dark-accent-text-color: #5736A3;
+  --btn-hover-color: #8476d8;
+  --btn-hover-text-color: #dcb54b;
+}
