@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const About = () => {
     return (
         <>
@@ -13,8 +15,7 @@ const About = () => {
             </p>
             {/* the part below will be rendered if auth */}
             <h4>Are you ready to browse?</h4>
-            {/* will be a Link */}
-            <button>Yes! Show me some ITweets!</button>
+            <Link to="/tweets">Yes! Show me some ITweets!</Link>
         </>
     )
 }
