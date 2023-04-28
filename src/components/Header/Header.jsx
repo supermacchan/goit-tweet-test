@@ -1,10 +1,11 @@
+import { Link } from "react-router-dom";
 import avatar from "../../images/avatar.png";
 
 const Header = () => {
     return (
         <header>
             {/* will be a Link */}
-            <button>Back to Home Page</button>
+            <Link to="/">Back to Home Page</Link>
             {/* user info */}
             <div>
                 <div>
