@@ -1,9 +1,14 @@
+import { 
+    Card,
+    AvatarContainer,
+    Avatar
+} from "./TweetCard.styled";
 import logo from "../../images/logo.svg";
 import img from "../../images/tweet-card-img.png"
 
 const TweetCard = ({name, avatar, tweets, followers}) => {
     return (
-        <div>
+        <Card>
             {/* upper card */}
             <div>
                 <img src={logo} alt="GoIT logo" />
@@ -12,15 +17,15 @@ const TweetCard = ({name, avatar, tweets, followers}) => {
             </div>
             {/* lower card */}
             <div>
-                <div>
-                    <img src={avatar} alt="user avatar" />
-                </div>
+                <AvatarContainer>
+                    <Avatar src={avatar} alt="user avatar" />
+                </AvatarContainer>
                 <p>{name}</p>
                 <p>{tweets} tweets</p>
                 <p>{followers} followers</p>
                 <button>Follow</button>
             </div>
-        </div>
+        </Card>
     )
 }
 

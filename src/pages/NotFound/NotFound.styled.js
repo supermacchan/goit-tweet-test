@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import bg from '../../images/background-image.jpg';
 
-export const Section = styled.section`
+export const Wrapper = styled.section`
     height: calc(100vh - 123px);
     padding-top: 68px;
 
