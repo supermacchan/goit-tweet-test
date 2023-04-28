@@ -1,3 +1,5 @@
+import Footer from "components/Footer/Footer";
+
 const TweetsPage = () => {
     return (
         // wrapper with a bg
@@ -11,7 +13,7 @@ const TweetsPage = () => {
                 </ul>
                 <button type="button">Load More</button>
             </section>
-            {/* <Footer /> */}
+            <Footer />
         </div>
     )
 }
