@@ -1,25 +1,37 @@
 import { Link } from "react-router-dom";
+import { 
+    HeaderContainer,
+    HomePageLink,
+    UserInfo,
+    AvatarContainer,
+    Img,
+    Greeting
+} from "./Header.styled";
 import avatar from "../../images/avatar.png";
 
 const Header = () => {
     return (
-        <header>
-            <Link to="/">Back to Home Page</Link>
+        <HeaderContainer>
+            <Link to="/" style={{textDecoration: "none"}}>
+                <HomePageLink>
+                    Back to Home Page
+                </HomePageLink>
+            </Link>
             {/* user info */}
-            <div>
-                <div>
-                    <img src={avatar} alt="user avatar" />
-                </div>
+            <UserInfo>
+                <AvatarContainer>
+                    <Img src={avatar} alt="user avatar" />
+                </AvatarContainer>
                 {/* render if auth */}
-                <p>
+                <Greeting>
                     Hi, User!
-                </p>
+                </Greeting>
                 {/* render if !auth */}
-                <p>
+                <Greeting>
                     Hi, stranger!
-                </p>
-            </div>
-        </header>
+                </Greeting>
+            </UserInfo>
+        </HeaderContainer>
     )
 }
 
