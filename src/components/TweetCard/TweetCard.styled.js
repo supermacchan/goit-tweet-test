@@ -18,7 +18,7 @@ export const Card = styled.div`
     &:hover {
         box-shadow: -2.5777px 6.87386px 20.6216px rgba(0, 0, 0, 0.63);
         transform: scale(1.03);
-  }
+    }
 `
 
 export const UpperPart = styled.div`

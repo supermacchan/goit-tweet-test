@@ -5,7 +5,7 @@ export const HeaderContainer = styled.header`
     top: 0;
     left: 0;
     z-index: 30;
-    
+
     width: 100%;
     padding: 8px 40px;
     box-sizing: border-box;

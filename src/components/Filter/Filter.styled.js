@@ -11,7 +11,7 @@ export const List = styled.ul`
 
 export const Button = styled.button`
     cursor: pointer;
-    padding: 12px 10px;
+    padding: 12px 18px;
 
     border: none;
     border-radius: 10px;
