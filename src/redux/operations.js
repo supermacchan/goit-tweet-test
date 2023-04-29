@@ -7,10 +7,21 @@ const instance = axios.create({
 
 const fetchAllTweets = createAsyncThunk(
     'tweets/fetchAll',
-    async (_, thunkAPI) => {
+    async ({page, itemsPerPage}, thunkAPI) => {
       try {
         const { data } = await instance.get("/users");
-        return data;
+
+        if (!page) {
+            const result = data.slice(0, itemsPerPage);
+            return result;
+        }
+
+        console.log(itemsPerPage)
+        const firstIndex = (page - 1) * itemsPerPage;
+        const secondIndex = firstIndex + itemsPerPage;
+        
+        const result = data.slice(firstIndex, secondIndex);
+        return result;
       } catch (err) {
         return thunkAPI.rejectWithValue(err.message);
       }
