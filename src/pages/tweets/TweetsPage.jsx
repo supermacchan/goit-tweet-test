@@ -154,6 +154,9 @@ const TweetsPage = () => {
 
     const fetchAll = async (page) => {
         const result = await dispatch(tweetOperations.fetchAllTweets({page, itemsPerPage}));
+        if (!page) {
+            setItems(result.payload);
+        }
         setMoreAvailable(true);
         return result.payload;
     }
