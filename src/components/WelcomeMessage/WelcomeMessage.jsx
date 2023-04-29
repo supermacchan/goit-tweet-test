@@ -5,13 +5,13 @@ import {
  } from "./WelcomeMessage.styled";
 import avatar from "../../images/avatar.png";
 
-const WelcomeMessage = () => {
+const WelcomeMessage = ({ name }) => {
     return (
         <> 
             <ImgContainer>
                 <Img src={avatar} alt="user avatar" />
             </ImgContainer>
-            <Greeting>Hi, User! Nice to see you!</Greeting>
+            <Greeting>Hi, {name}! Nice to see you!</Greeting>
         </>
     )
 }
