@@ -43,8 +43,27 @@ const fetchNotFollowed = createAsyncThunk(
     }
 )
 
+const addFollower = createAsyncThunk(
+    'tweets/addFollower',
+    async (id, thunkAPI) => {
+        try {
+            const { data } = await instance.get(`/users/${id}`);
+            const newFollowersCount = data.followers + 1;
+            const updatedUser = {...data, followers: newFollowersCount};
+            await instance.put(`/users/${id}`, updatedUser);
+            console.log(updatedUser);
+            return updatedUser;
+        } catch (err) {
+            return thunkAPI.rejectWithValue(err.message);
+        }
+    }
+)
+
+
+
 export const tweetOperations = {
     fetchAllTweets,
     fetchFollowed,
-    fetchNotFollowed
+    fetchNotFollowed,
+    addFollower
 } 

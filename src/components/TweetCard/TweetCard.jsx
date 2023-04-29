@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectFavorites } from "redux/selectors";
 import { follow, unfollow } from "redux/slices/userSlice";
+import { tweetOperations } from "redux/operations";
 import { 
     Card,
     UpperPart,
@@ -33,6 +34,7 @@ const TweetCard = ({id, name, avatar, tweets, followers}) => {
             dispatch(unfollow(id));
         } else {
             dispatch(follow(id));
+            dispatch(tweetOperations.addFollower(id));
         }
     }
 
