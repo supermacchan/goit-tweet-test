@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import devices from 'utils/styles/devices';
 
 export const HeaderContainer = styled.header`
     position: fixed;
@@ -7,7 +8,7 @@ export const HeaderContainer = styled.header`
     z-index: 30;
 
     width: 100%;
-    padding: 8px 40px;
+    padding: 8px 20px;
     box-sizing: border-box;
 
     display: flex;
@@ -15,12 +16,16 @@ export const HeaderContainer = styled.header`
     align-items: center;
 
     background-color: var(--main-btn-color);
+
+    @media ${devices.tablet} {
+        padding: 8px 40px;
+    }
 `
 
 export const HomePageLink = styled.span`
     margin: 0 auto;
 
-    font-size: 18px;
+    font-size: 13px;
     font-weight: 500;
     text-transform: uppercase;
 
@@ -31,6 +36,10 @@ export const HomePageLink = styled.span`
     &:hover,
     &:focus {
         color: var(--dark-accent-text-color);
+    }
+
+    @media ${devices.tablet} {
+        font-size: 18px;
     }
 `
 
@@ -55,7 +64,11 @@ export const Img = styled.img`
 export const Greeting = styled.p`
     color: var(--dark-text-color);
 
-    font-size: 16px;
+    font-size: 13px;
     font-weight: 400;
     text-transform: uppercase;
+
+    @media ${devices.tablet} {
+        font-size: 16px;
+    }
 `

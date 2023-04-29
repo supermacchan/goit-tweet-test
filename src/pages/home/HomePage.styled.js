@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import devices from 'utils/styles/devices';
 import bg from '../../images/background-image.jpg';
 
 export const Wrapper = styled.div`
@@ -16,5 +17,9 @@ export const Section = styled.section`
     flex-direction: column;
     align-items: center;
 
-    padding: 0 40px;
+    padding: 60px 20px 0 20px;
+
+    @media ${devices.tablet} {
+        padding: 60px 40px 0 40px;
+    }
 `
