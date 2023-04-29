@@ -34,7 +34,6 @@ const TweetCard = ({id, name, avatar, tweets, followers}) => {
         } else {
             dispatch(follow(id));
         }
-
     }
 
     return (
