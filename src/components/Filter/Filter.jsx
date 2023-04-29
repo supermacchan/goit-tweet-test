@@ -1,25 +1,27 @@
+import { List, Button } from "./Filter.styled";
+
 const Filter = () => {
     return (
-        <ul>
+        <List>
             {/* map li from filter options */}
 
             {/* temp */}
             <li>
-                <button type="button">
+                <Button type="button">
                     show all
-                </button>
+                </Button>
             </li>
             <li>
-                <button type="button">
+                <Button type="button">
                     follow
-                </button>
+                </Button>
             </li>
             <li>
-                <button type="button">
+                <Button type="button">
                     followings
-                </button>
+                </Button>
             </li>
-        </ul>
+        </List>
     )
 }
 

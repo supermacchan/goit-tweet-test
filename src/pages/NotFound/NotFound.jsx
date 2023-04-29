@@ -1,11 +1,14 @@
 import Header from "components/Header/Header";
+import img from "../../images/tweet-card-img.png"
+import { Wrapper, Message } from "./NotFound.styled";
 
 const NotFound = () => {
     return (
-        <section>
+        <Wrapper>
             <Header />
-            <h2>Oops! This page does not exist.</h2>
-        </section>
+            <Message>Oops! This page does not exist.</Message>
+            <img src={img} alt="filler" />
+        </Wrapper>
     )
 }
 

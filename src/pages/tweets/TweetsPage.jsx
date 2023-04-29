@@ -1,19 +1,17 @@
 import Header from "components/Header/Header";
 import Filter from "components/Filter/Filter";
 import TweetCard from "components/TweetCard/TweetCard";
-
+import { Wrapper, Section, List, Button } from "./TweetsPage.styled";
 // temp
 import users from "../../temp/mockapi.json";
 
 const TweetsPage = () => {
     return (
-        // wrapper with a bg
-        <div>
+        <Wrapper>
             <Header />
-            <section>
+            <Section>
                 <Filter />
-                {/* tweet cards */}
-                <ul>
+                <List>
                     {users.map(user => {
                         return (
                             <TweetCard
@@ -22,13 +20,13 @@ const TweetsPage = () => {
                                 avatar={user.avatar}
                                 tweets={user.tweets}
                                 followers={user.followers}
-                            />
+                             />
                         )   
                     })}
-                </ul>
-                <button type="button">Load More</button>
-            </section>
-        </div>
+                </List>
+                <Button type="button">Load More</Button>
+            </Section>
+        </Wrapper>
     )
 }
 
