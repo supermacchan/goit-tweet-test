@@ -4,6 +4,7 @@ import bg from '../../images/background-image.jpg';
 
 export const Wrapper = styled.div`
     padding-top: 68px;
+    min-height: calc(100vh - 123px);
 
     background-image: url(${bg});
     background-repeat: no-repeat;
@@ -59,4 +60,9 @@ export const Button = styled.button`
         padding: 15px 30px;
         font-size: 16px;
     }
+`
+
+export const Error = styled.h2`
+    margin: 50px 0;
+    color: var(--dark-accent-text-color);
 `

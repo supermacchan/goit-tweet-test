@@ -1,17 +1,17 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { selectTweets, selectTweetsLoading, selectFilter, selectFavorites } from "redux/selectors";
+import { selectTweets, selectTweetsLoading, selectTweetsError, selectFilter, selectFavorites } from "redux/selectors";
 import { tweetOperations } from "redux/operations";
 import Header from "components/Header/Header";
 import Filter from "components/Filter/Filter";
 import TweetCard from "components/TweetCard/TweetCard";
 import Loader from "components/Loader/Loader";
-import { Wrapper, Section, List, Button } from "./TweetsPage.styled";
+import { Wrapper, Section, List, Button, Error } from "./TweetsPage.styled";
 
 const TweetsPage = () => {
     const users = useSelector(selectTweets);
     const isLoading = useSelector(selectTweetsLoading);
-    // const error = useSelector(selectTweetsError);
+    const error = useSelector(selectTweetsError);
     const filter = useSelector(selectFilter);
     const favorites = useSelector(selectFavorites);
     const dispatch = useDispatch();
@@ -38,9 +38,9 @@ const TweetsPage = () => {
             <Header />
             <Section>
                 <Filter />
+                {isLoading && <Loader />}
+                {error && <Error>Oops! Nothing was found.</Error>}
                 <List>
-                    {isLoading && <Loader />}
-                    {/* add error message */}
                     {users.map(user => {
                         return (
                             <TweetCard
@@ -54,7 +54,8 @@ const TweetsPage = () => {
                         )   
                     })}
                 </List>
-                <Button type="button">Load More</Button>
+                {(users.length > 6) 
+                && <Button type="button">Load More</Button>}
             </Section>
         </Wrapper>
     )

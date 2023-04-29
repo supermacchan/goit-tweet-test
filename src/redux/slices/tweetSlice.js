@@ -24,11 +24,11 @@ export const tweetSlice = createSlice({
     },
     [tweetOperations.fetchAllTweets.rejected](state, action) {
         state.error = action.payload;
+        state.loading = false;
     },
     // fetch followed
     [tweetOperations.fetchFollowed.fulfilled](state, action) {
         state.items = action.payload;
-        console.log(action.payload);
         state.error = null;
         state.loading = false;
     },
@@ -38,8 +38,8 @@ export const tweetSlice = createSlice({
         state.error = null;
     },
     [tweetOperations.fetchFollowed.rejected](state, action) {
-        console.log(action.payload);
         state.error = action.payload;
+        state.loading = false;
     },
     // fetch not followed
     [tweetOperations.fetchNotFollowed.fulfilled](state, action) {
@@ -54,8 +54,8 @@ export const tweetSlice = createSlice({
         state.error = null;
     },
     [tweetOperations.fetchNotFollowed.rejected](state, action) {
-        console.log(action.payload);
         state.error = action.payload;
+        state.loading = false;
     },
   },
 });
