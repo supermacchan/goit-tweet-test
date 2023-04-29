@@ -32,6 +32,7 @@ const TweetCard = ({id, name, avatar, tweets, followers}) => {
     const onFollowClick = () => {
         if (isFollowed) {
             dispatch(unfollow(id));
+            dispatch(tweetOperations.removeFollower(id));
         } else {
             dispatch(follow(id));
             dispatch(tweetOperations.addFollower(id));

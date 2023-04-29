@@ -73,6 +73,22 @@ export const tweetSlice = createSlice({
             state.error = action.payload;
             state.loading = false;
         },
+        // remove a follower
+        [tweetOperations.removeFollower.fulfilled](state, action) {
+            const updatedUser = state.items.find(user => user.id === action.payload.id);
+            updatedUser.followers = action.payload.followers;
+            state.error = null;
+            state.loading = false;
+        },
+        [tweetOperations.removeFollower.pending](state, action) {
+            state.loading = true;
+            state.items = [];
+            state.error = null;
+        },
+        [tweetOperations.removeFollower.rejected](state, action) {
+            state.error = action.payload;
+            state.loading = false;
+        },
     },
 });
 
