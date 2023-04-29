@@ -4,7 +4,8 @@ import {
     selectTweets, 
     selectTweetsLoading, 
     selectTweetsError, 
-    selectFavorites
+    selectFavorites,
+    selectFilter
 } from "redux/selectors";
 import { tweetOperations } from "redux/operations";
 import Header from "components/Header/Header";
@@ -25,6 +26,7 @@ const TweetsPage = () => {
     const isLoading = useSelector(selectTweetsLoading);
     const error = useSelector(selectTweetsError);
     const favorites = useSelector(selectFavorites);
+    const filter = useSelector(selectFilter);
 
     const dispatch = useDispatch();
 
@@ -56,23 +58,75 @@ const TweetsPage = () => {
             return () => window.removeEventListener('resize', handleWindowResize);
     }, []);
 
-    const handleLoadMore = async () => {
-        const result = await fetchAll(page + 1);
+    const filterCheck = async () => {
+        switch (filter) {
+            case "show all": {
+                const result = await fetchAll(page + 1);
+                return result;
+            }
+            case "follow": {
+                const result = await fetchNotFollowed(page + 1);
+                console.log(result);
+                return result;
+            }
+            case "followings": {
+                const result = await fetchFollowed(page + 1);
+                console.log("switch");
+                console.log(result);
+                console.log(items);
+                return result;
+            }
+            default:
+                return;
+        }
+    };
 
+    const handleLoadMore = async () => {
+        const result = await filterCheck();
+            
         if(result.length >= 6) {
             setPage((prevState => prevState + 1));
             setMoreAvailable(true);
             setItems(prevState => {
                 return [...prevState, ...result];
             })
-
+            console.log("finally");
+            console.log(result);
+            console.log(items);
             return;
         }
-        
+
+        if(result.length === 0) {
+            setPage(1);
+            setMoreAvailable(false);
+            toast("Looks like you've reached the end of the list");
+            return;
+        }
+          
+        setItems(prevState => {
+            return [...prevState, ...result];
+        })
+
         setPage(1);
         setMoreAvailable(false);
         toast("Looks like you've reached the end of the list");
-    }
+    };
+        // const result = await fetchAll(page + 1);
+
+        // if(result.length >= 6) {
+        //     setPage((prevState => prevState + 1));
+        //     setMoreAvailable(true);
+        //     setItems(prevState => {
+        //         return [...prevState, ...result];
+        //     })
+
+        //     return;
+        // }
+        
+        // setPage(1);
+        // setMoreAvailable(false);
+        // toast("Looks like you've reached the end of the list");
+    // }
 
     // reset page num to 1
     // useEffect(() => {
@@ -104,16 +158,27 @@ const TweetsPage = () => {
         return result.payload;
     }
 
-    const fetchFollowed = async () => {
-        const result = await dispatch(tweetOperations.fetchFollowed(favorites));
-        setItems(result.payload);
-        setMoreAvailable(false);
+    const fetchFollowed = async (page) => {
+        const result = await dispatch(tweetOperations.fetchFollowed({favorites, page, itemsPerPage}));
+        if (!page) {
+            setItems(result.payload);
+        }
+        // setItems(result.payload);
+        setMoreAvailable(true);
+        console.log("fetch followed");
+        console.log(result.payload);
+        console.log(items);
+        return result.payload;
     }
 
-    const fetchNotFollowed = async () => {
-        const result = await dispatch(tweetOperations.fetchNotFollowed(favorites));
-        setItems(result.payload);
-        setMoreAvailable(false);
+    const fetchNotFollowed = async (page) => {
+        const result = await dispatch(tweetOperations.fetchNotFollowed({favorites, page, itemsPerPage}));
+        if (!page) {
+            setItems(result.payload);
+        }
+        // setItems(result.payload);
+        setMoreAvailable(true);
+        return result.payload;
     }
 
     return (

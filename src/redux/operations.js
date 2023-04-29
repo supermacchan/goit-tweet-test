@@ -29,11 +29,23 @@ const fetchAllTweets = createAsyncThunk(
 
 const fetchFollowed = createAsyncThunk(
     'tweets/fetchFollowed',
-    async (favorites, thunkAPI) => {
+    async ({favorites, page, itemsPerPage}, thunkAPI) => {
         try {
             const { data } = await instance.get("/users");
             const followed = data.filter((item) => favorites.includes(item.id));
-            return followed;
+
+            if (!page) {
+                const result = followed.slice(0, itemsPerPage);
+                return result;
+            }
+    
+            const firstIndex = (page - 1) * itemsPerPage;
+            const secondIndex = firstIndex + itemsPerPage;
+            
+            const result = followed.slice(firstIndex, secondIndex);
+            return result;
+
+            // return followed;
         } catch (err) {
             return thunkAPI.rejectWithValue(err.message);
         }
@@ -42,11 +54,23 @@ const fetchFollowed = createAsyncThunk(
 
 const fetchNotFollowed = createAsyncThunk(
     'tweets/fetchFollowed',
-    async (favorites, thunkAPI) => {
+    async ({favorites, page, itemsPerPage}, thunkAPI) => {
         try {
             const { data } = await instance.get("/users");
             const notFollowed = data.filter((item) => !favorites.includes(item.id));
-            return notFollowed;
+            
+            if (!page) {
+                const result = notFollowed.slice(0, itemsPerPage);
+                return result;
+            }
+    
+            const firstIndex = (page - 1) * itemsPerPage;
+            const secondIndex = firstIndex + itemsPerPage;
+            
+            const result = notFollowed.slice(firstIndex, secondIndex);
+            return result;
+
+            // return notFollowed;
         } catch (err) {
             return thunkAPI.rejectWithValue(err.message);
         }
