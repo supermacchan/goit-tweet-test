@@ -1,5 +1,6 @@
 import { lazy } from "react";
 import { Routes, Route } from 'react-router-dom';
+import { PrivateRoute } from "./Routes/PrivateRoute";
 import { ToastContainer } from 'react-toastify';
 import Layout from "./Layout/Layout";
 import 'react-toastify/dist/ReactToastify.css';
@@ -14,7 +15,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
-          <Route path="/tweets" element={<TweetsPage />}/>
+          <Route path="/tweets" element={
+            <PrivateRoute component={TweetsPage} redirectTo="/"/>} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectAuth } from "redux/selectors";
 import { 
     Container,
     Title,
@@ -8,6 +10,8 @@ import {
 } from "./About.styled";
 
 const About = () => {
+    const auth = useSelector(selectAuth);
+
     return (
         <Container>
             <Title>Welcome to GoIT Tweets!</Title>
@@ -20,13 +24,19 @@ const About = () => {
                 and adding this functionality in the future, so please 
                 stay tuned!
             </Text>
-            {/* the part below will be rendered if auth */}
-            <Encouragement>Are you ready to browse?</Encouragement>
-            <Link to="/tweets" style={{textDecoration: "none"}}>
-                <Button>
-                    Yes! Show me some ITweets!
-                </Button>
-            </Link>
+            
+            { auth
+            ?  <>
+                <Encouragement>Are you ready to browse?</Encouragement>
+                <Link to="/tweets" style={{textDecoration: "none"}}>
+                    <Button>
+                        Yes! Show me some ITweets!
+                    </Button>
+                </Link>
+            </>
+            : <Encouragement>Sign in to get started!</Encouragement>
+        }
+            
             
         </Container>
     )
