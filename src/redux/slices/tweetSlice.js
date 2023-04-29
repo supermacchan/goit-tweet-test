@@ -59,32 +59,34 @@ export const tweetSlice = createSlice({
         },
         // add new follower
         [tweetOperations.addFollower.fulfilled](state, action) {
+            console.log(action.payload);
             const updatedUser = state.items.find(user => user.id === action.payload.id);
+            console.log(updatedUser);
             updatedUser.followers = action.payload.followers;
             state.error = null;
             state.loading = false;
         },
-        [tweetOperations.addFollower.pending](state, action) {
-            state.loading = true;
-            state.items = [];
-            state.error = null;
-        },
+        // [tweetOperations.addFollower.pending](state, action) {
+        //     state.loading = true;
+        //     state.error = null;
+        // },
         [tweetOperations.addFollower.rejected](state, action) {
             state.error = action.payload;
             state.loading = false;
         },
         // remove a follower
         [tweetOperations.removeFollower.fulfilled](state, action) {
+            console.log(action.payload);
             const updatedUser = state.items.find(user => user.id === action.payload.id);
+            console.log(updatedUser);
             updatedUser.followers = action.payload.followers;
             state.error = null;
             state.loading = false;
         },
-        [tweetOperations.removeFollower.pending](state, action) {
-            state.loading = true;
-            state.items = [];
-            state.error = null;
-        },
+        // [tweetOperations.removeFollower.pending](state, action) {
+        //     state.loading = true;
+        //     state.error = null;
+        // },
         [tweetOperations.removeFollower.rejected](state, action) {
             state.error = action.payload;
             state.loading = false;

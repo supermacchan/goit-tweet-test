@@ -21,6 +21,7 @@ import img from "../../images/tweet-card-img.png"
 
 const TweetCard = ({id, name, avatar, tweets, followers}) => {
     const [isFollowed, setIsFollowed] = useState(false);
+    const [followersCount, setFollowersCount] = useState(followers);
     const favorites = useSelector(selectFavorites);
     const dispatch = useDispatch();
 
@@ -33,9 +34,11 @@ const TweetCard = ({id, name, avatar, tweets, followers}) => {
         if (isFollowed) {
             dispatch(unfollow(id));
             dispatch(tweetOperations.removeFollower(id));
+            setFollowersCount(followersCount - 1);
         } else {
             dispatch(follow(id));
             dispatch(tweetOperations.addFollower(id));
+            setFollowersCount(followersCount + 1);
         }
     }
 
@@ -51,7 +54,7 @@ const TweetCard = ({id, name, avatar, tweets, followers}) => {
                     <Avatar src={avatar} alt="user avatar" />
                 </AvatarContainer>
                 <Tweets>{tweets} tweets</Tweets>
-                <Followers>{followers} followers</Followers>
+                <Followers>{followersCount} followers</Followers>
                 <Button type="button" onClick={onFollowClick}>
                     {isFollowed
                     ? "Following"
