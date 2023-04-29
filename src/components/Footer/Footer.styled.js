@@ -1,11 +1,8 @@
 import styled from 'styled-components';
 
 export const FooterContainer = styled.footer`
-    /* position: fixed;
-    bottom: 0;
-    left: 0; */
-
-    width: 100vw;
+    width: 100%;
+    box-sizing: border-box;
     padding: 8px 0;
 
     background-color: var(--dark-bg-color);

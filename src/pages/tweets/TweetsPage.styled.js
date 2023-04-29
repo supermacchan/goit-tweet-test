@@ -16,6 +16,7 @@ export const Section = styled.div`
     flex-direction: column;
     align-items: center;
     padding: 20px 0;
+    box-sizing: border-box;
 `
 
 export const List = styled.ul`
