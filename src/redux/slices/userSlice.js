@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const userInitialState = {
     name: null,
     auth: false,
+    favorites: []
 }
 
 export const userSlice = createSlice({
@@ -17,8 +18,15 @@ export const userSlice = createSlice({
             state.name = null;
             state.auth = false;
         },
+        follow(state, action) {
+            state.favorites.push(action.payload);
+        },
+        unfollow(state, action) {
+            const index = state.favorites.indexOf(action.payload);
+            state.favorites.splice(index, 1);
+        }
     },
 });
 
-export const { signIn, logOut } = userSlice.actions;
+export const { signIn, logOut, follow, unfollow } = userSlice.actions;
 export const userReducer = userSlice.reducer;

@@ -30,6 +30,7 @@ const TweetsPage = () => {
                         return (
                             <TweetCard
                                 key={user.id}
+                                id={user.id}
                                 name={user.user}
                                 avatar={user.avatar}
                                 tweets={user.tweets}
