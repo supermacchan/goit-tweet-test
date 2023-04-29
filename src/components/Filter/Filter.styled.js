@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import devices from 'utils/styles/devices';
 
 export const List = styled.ul`
     list-style: none;
@@ -11,7 +12,7 @@ export const List = styled.ul`
 
 export const Button = styled.button`
     cursor: pointer;
-    padding: 12px 18px;
+    padding: 12px;
 
     border: none;
     border-radius: 10px;
@@ -21,7 +22,7 @@ export const Button = styled.button`
     color: var(--dark-text-color);
 
     font-family: inherit;
-    font-size: 16px;
+    font-size: 13px;
     font-weight: 500;
     text-transform: uppercase;
 
@@ -30,5 +31,10 @@ export const Button = styled.button`
     &:hover,
     &:focus {
         background-color: var(--btn-hover-text-color);
+    }
+
+    @media ${devices.tablet} {
+        padding: 12px 18px;
+        font-size: 16px;
     }
 `

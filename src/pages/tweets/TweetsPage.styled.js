@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import devices from 'utils/styles/devices';
 import bg from '../../images/background-image.jpg';
 
 export const Wrapper = styled.div`
@@ -32,7 +33,7 @@ export const List = styled.ul`
 
 export const Button = styled.button`
     cursor: pointer;
-    padding: 15px 25px;
+    padding: 10px 25px;
     margin-top: 20px;
 
     border: none;
@@ -52,5 +53,10 @@ export const Button = styled.button`
     &:hover,
     &:focus {
         background-color: var(--btn-hover-text-color);
+    }
+
+    @media ${devices.tablet} {
+        padding: 15px 30px;
+        font-size: 16px;
     }
 `
