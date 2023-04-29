@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { tweetOperations } from 'redux/operations';
+import { logOut } from './userSlice';
 
 const initialState = {
     items: [],
@@ -91,6 +92,11 @@ export const tweetSlice = createSlice({
             state.error = action.payload;
             state.loading = false;
         },
+        [logOut](state, action) {
+            state.items = [];
+            state.error = null;
+            state.loading = false;
+        }
     },
 });
 

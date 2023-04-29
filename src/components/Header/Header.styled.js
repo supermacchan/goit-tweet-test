@@ -72,3 +72,10 @@ export const Greeting = styled.p`
         font-size: 16px;
     }
 `
+
+export const LogoutBtn = styled.button`
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    color: var(--dark-text-color);
+`

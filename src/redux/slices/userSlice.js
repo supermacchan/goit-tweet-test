@@ -17,6 +17,7 @@ export const userSlice = createSlice({
         logOut(state) {
             state.name = null;
             state.auth = false;
+            state.favorites = [];
         },
         follow(state, action) {
             state.favorites.push(action.payload);

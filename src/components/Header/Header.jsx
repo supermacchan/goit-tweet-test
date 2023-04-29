@@ -1,19 +1,27 @@
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { selectAuth, selectUser } from "redux/selectors";
+import { logOut } from "redux/slices/userSlice";
 import { 
     HeaderContainer,
     HomePageLink,
     UserInfo,
     AvatarContainer,
     Img,
-    Greeting
+    Greeting,
+    LogoutBtn
 } from "./Header.styled";
+import { RiLogoutBoxLine } from "react-icons/ri";
 import avatar from "../../images/avatar.png";
 
 const Header = () => {
     const auth = useSelector(selectAuth);
     const name = useSelector(selectUser);
+    const dispatch = useDispatch();
+
+    const onLogout = () => {
+        dispatch(logOut());
+    }
 
     return (
         <HeaderContainer>
@@ -22,7 +30,6 @@ const Header = () => {
                     Back to Home Page
                 </HomePageLink>
             </Link>
-            {/* user info */}
             <UserInfo>
                 <AvatarContainer>
                     <Img src={avatar} alt="user avatar" />
@@ -33,6 +40,11 @@ const Header = () => {
                     : "Hi, stranger!"
                     }
                 </Greeting>
+                { auth && 
+                    <LogoutBtn type="button" onClick={onLogout}>
+                        <RiLogoutBoxLine style={{height: "30px", width: "20px"}}/>
+                    </LogoutBtn>
+                }
             </UserInfo>
         </HeaderContainer>
     )
