@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { signIn } from "redux/slices/userSlice";
 import { 
     Form, 
     MainTitle, 
@@ -9,10 +11,11 @@ import {
 
 const WelcomeForm = () => {
     const [name, setName] = useState('');
+    const dispatch = useDispatch();
 
     const onFormSubmit = e => {
         e.preventDefault();
-        console.log(name);
+        dispatch(signIn(name));
         reset();
     }
 
