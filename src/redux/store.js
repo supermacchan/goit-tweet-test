@@ -1,5 +1,5 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
-import { filtersReducer } from "./filterSlice";
+import { filtersReducer } from "./slices/filterSlice";
 import localStorage from 'redux-persist/lib/storage';
 import {
     persistStore,
