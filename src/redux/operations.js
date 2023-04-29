@@ -16,7 +16,6 @@ const fetchAllTweets = createAsyncThunk(
             return result;
         }
 
-        console.log(itemsPerPage)
         const firstIndex = (page - 1) * itemsPerPage;
         const secondIndex = firstIndex + itemsPerPage;
         

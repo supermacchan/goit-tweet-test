@@ -4,7 +4,7 @@ import {
     selectTweets, 
     selectTweetsLoading, 
     selectTweetsError, 
-    selectFavorites 
+    selectFavorites
 } from "redux/selectors";
 import { tweetOperations } from "redux/operations";
 import Header from "components/Header/Header";
@@ -58,7 +58,6 @@ const TweetsPage = () => {
 
     const handleLoadMore = async () => {
         const result = await fetchAll(page + 1);
-        console.log(result);
 
         if(result.length >= 6) {
             setPage((prevState => prevState + 1));
@@ -89,24 +88,24 @@ const TweetsPage = () => {
 
     useEffect(() => {
         dispatch(tweetOperations.fetchAllTweets({page, itemsPerPage}));
-        // console.log(page);
     }, [dispatch, page, itemsPerPage]);
 
     const fetchAll = async (page) => {
         const result = await dispatch(tweetOperations.fetchAllTweets({page, itemsPerPage}));
         setMoreAvailable(true);
-        console.log(result);
         return result.payload;
     }
 
-    const fetchFollowed = () => {
-        dispatch(tweetOperations.fetchFollowed(favorites));
-        setMoreAvailable(true);
+    const fetchFollowed = async () => {
+        const result = await dispatch(tweetOperations.fetchFollowed(favorites));
+        setItems(result.payload);
+        setMoreAvailable(false);
     }
 
-    const fetchNotFollowed = () => {
-        dispatch(tweetOperations.fetchNotFollowed(favorites));
-        setMoreAvailable(true);
+    const fetchNotFollowed = async () => {
+        const result = await dispatch(tweetOperations.fetchNotFollowed(favorites));
+        setItems(result.payload);
+        setMoreAvailable(false);
     }
 
     return (
