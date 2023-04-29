@@ -75,20 +75,28 @@ const TweetsPage = () => {
     }
 
     // reset page num to 1
-    useEffect(() => {
-        return () => { setPage(1) }
-    }, []);
+    // useEffect(() => {
+    //     return () => { setPage(1) }
+    // }, []);
 
     // first render???
     useEffect(() => {
-        dispatch(tweetOperations.fetchAllTweets({itemsPerPage}));
+        const firstRender = async () => {
+            const result = await dispatch(tweetOperations.fetchAllTweets({page: 1, itemsPerPage}));
+            setItems(result.payload);
+        };
+        firstRender();
+        // dispatch(tweetOperations.fetchAllTweets({itemsPerPage}));
         setPage(1);
         setMoreAvailable(true);
     }, [dispatch, itemsPerPage]);
 
-    useEffect(() => {
-        dispatch(tweetOperations.fetchAllTweets({page, itemsPerPage}));
-    }, [dispatch, page, itemsPerPage]);
+    // useEffect(() => {
+    //     console.log(page);
+    //     console.log(items);
+    //     console.log(users);
+    //     dispatch(tweetOperations.fetchAllTweets({page, itemsPerPage}));
+    // }, [dispatch, page, itemsPerPage]);
 
     const fetchAll = async (page) => {
         const result = await dispatch(tweetOperations.fetchAllTweets({page, itemsPerPage}));
