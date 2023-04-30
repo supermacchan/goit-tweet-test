@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { 
     selectTweets, 
-    selectTweetsLoading, 
+    // selectTweetsLoading, 
     selectTweetsError, 
     selectFavorites,
     selectFilter
@@ -11,7 +11,7 @@ import { tweetOperations } from "redux/operations";
 import Header from "components/Header/Header";
 import Filter from "components/Filter/Filter";
 import TweetCard from "components/TweetCard/TweetCard";
-import Loader from "components/Loader/Loader";
+// import Loader from "components/Loader/Loader";
 import { 
     Wrapper, 
     Section, 
@@ -23,7 +23,7 @@ import { toast } from "react-toastify";
 
 const TweetsPage = () => {
     const users = useSelector(selectTweets);
-    const isLoading = useSelector(selectTweetsLoading);
+    // const isLoading = useSelector(selectTweetsLoading);
     const error = useSelector(selectTweetsError);
     const favorites = useSelector(selectFavorites);
     const filter = useSelector(selectFilter);
@@ -167,7 +167,13 @@ const TweetsPage = () => {
             setItems(result.payload);
         }
         // setItems(result.payload);
-        setMoreAvailable(true);
+        if (result.payload.length < itemsPerPage) {
+            setMoreAvailable(false);
+        } else {
+            setMoreAvailable(true);
+        }
+
+        // setMoreAvailable(true);
         console.log("fetch followed");
         console.log(result.payload);
         console.log(items);
@@ -179,8 +185,14 @@ const TweetsPage = () => {
         if (!page) {
             setItems(result.payload);
         }
+
+        if (result.payload.length < itemsPerPage) {
+            setMoreAvailable(false);
+        } else {
+            setMoreAvailable(true);
+        }
         // setItems(result.payload);
-        setMoreAvailable(true);
+        // setMoreAvailable(true);
         return result.payload;
     }
 
@@ -193,10 +205,11 @@ const TweetsPage = () => {
                     fetchFollowed={fetchFollowed}
                     fetchNotFollowed={fetchNotFollowed}
                 />
-                {isLoading && <Loader />}
-                {error && <Error>Oops! Nothing was found.</Error>}
+                {/* {isLoading && <Loader />} */}
+                {error && <Error>Oops! Something went wrong.</Error>}
+
                 <List>
-                    {items.map(user => {
+                    {!error && items.map(user => {
                         return (
                             <TweetCard
                                 key={user.id}
@@ -209,8 +222,8 @@ const TweetsPage = () => {
                         )   
                     })}
                 </List>
-                {moreAvailable
-                && <Button type="button" onClick={handleLoadMore}>Load More</Button>}
+                {moreAvailable &&
+                <Button type="button" onClick={handleLoadMore}>Load More</Button>}
             </Section>
         </Wrapper>
     )

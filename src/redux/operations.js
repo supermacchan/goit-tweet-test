@@ -53,7 +53,7 @@ const fetchFollowed = createAsyncThunk(
 )
 
 const fetchNotFollowed = createAsyncThunk(
-    'tweets/fetchFollowed',
+    'tweets/fetchNotFollowed',
     async ({favorites, page, itemsPerPage}, thunkAPI) => {
         try {
             const { data } = await instance.get("/users");

@@ -22,4 +22,8 @@ export const Section = styled.section`
     @media ${devices.tablet} {
         padding: 60px 40px 0 40px;
     }
+
+    @media ${devices.desktop} {
+        padding: 100px 40px 0 40px;
+    }
 `

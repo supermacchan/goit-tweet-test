@@ -1,13 +1,14 @@
 import { lazy } from "react";
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { PrivateRoute } from "./Routes/PrivateRoute";
+import { NotFoundPage } from "pages/NotFound/NotFoundPage";
 import { ToastContainer } from 'react-toastify';
 import Layout from "./Layout/Layout";
 import 'react-toastify/dist/ReactToastify.css';
 
 const HomePage = lazy(() => import("../pages/home/HomePage"));
 const TweetsPage = lazy(() => import("../pages/tweets/TweetsPage"));
-// const NotFound = lazy(() => import("../pages/NotFound/NotFound"));
+const NotFound = lazy(() => import("../pages/NotFound/NotFound"));
 
 function App() {
   return (
@@ -16,8 +17,11 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path="/tweets" element={
-            <PrivateRoute component={TweetsPage} redirectTo="/"/>} />
-          <Route path="*" element={<Navigate to="/"/>} />
+            <PrivateRoute component={TweetsPage} redirectTo="/"/>
+          } />
+          <Route path="*" element={
+            <NotFoundPage component={NotFound} redirectTo="/" />
+          } />
         </Route>
       </Routes>
 

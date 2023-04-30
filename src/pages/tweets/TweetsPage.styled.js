@@ -3,7 +3,7 @@ import devices from 'utils/styles/devices';
 import bg from '../../images/background-image.jpg';
 
 export const Wrapper = styled.div`
-    padding-top: 68px;
+    padding-top: 78px;
     min-height: calc(100vh - 123px);
 
     background-image: url(${bg});
@@ -22,6 +22,7 @@ export const Section = styled.div`
 `
 
 export const List = styled.ul`
+    max-width: 550px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -30,6 +31,15 @@ export const List = styled.ul`
     list-style: none;
     margin: 0;
     padding: 0;
+
+    @media ${devices.tablet} {
+        max-width: 800px;
+    }
+
+    @media ${devices.desktop} {
+        max-width: 1200px;
+        gap: 30px;
+    }
 `
 
 export const Button = styled.button`
