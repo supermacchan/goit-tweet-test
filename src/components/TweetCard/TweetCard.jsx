@@ -14,7 +14,8 @@ import {
     Name,
     Tweets,
     Followers,
-    Button
+    Button,
+    ActiveButton
 } from "./TweetCard.styled";
 import logo from "../../images/logo.svg";
 import img from "../../images/tweet-card-img.png"
@@ -55,12 +56,9 @@ const TweetCard = ({id, name, avatar, tweets, followers}) => {
                 </AvatarContainer>
                 <Tweets>{tweets} tweets</Tweets>
                 <Followers>{followersCount} followers</Followers>
-                <Button type="button" onClick={onFollowClick}>
-                    {isFollowed
-                    ? "Following"
-                    : "Follow"
-                    }
-                </Button>
+                {isFollowed
+                ? <ActiveButton type="button" onClick={onFollowClick}>Following</ActiveButton>
+                : <Button type="button" onClick={onFollowClick}>Follow</Button>}
             </LowerPart>
         </Card>
     )

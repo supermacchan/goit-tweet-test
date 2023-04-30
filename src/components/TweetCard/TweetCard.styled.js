@@ -174,3 +174,38 @@ export const Button = styled.button`
         font-size: 16px;
     }
 `
+
+export const ActiveButton = styled.button`
+    cursor: pointer;
+
+    margin-top: 22px;
+    padding: 10px 7px;
+    width: 160px;
+
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25);
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-align: center;
+
+    background-color: var(--active-btn-color);
+    color: var(--dark-text-color);
+
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover,
+    &:focus {
+        background-color: var(--main-btn-color);
+    }
+
+    @media ${devices.tablet} {
+        margin-top: 26px;
+        padding: 14px 10px;
+        width: 196px;
+        font-size: 16px;
+    }
+`
