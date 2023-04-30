@@ -155,7 +155,7 @@ const TweetsPage = () => {
     // ===== upon Load More button click =====
     const handleLoadMore = async () => {
         const result = await filterCheck();
-        animateScroll.scrollMore(1000, {smooth: 'easeInOutQuint'});
+        animateScroll.scrollMore(700, {smooth: 'easeInOutQuint'});
 
         // if reached the end of the list
         if(result.length < itemsPerPage) {
