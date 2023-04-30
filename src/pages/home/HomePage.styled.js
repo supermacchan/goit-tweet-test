@@ -3,7 +3,7 @@ import devices from 'utils/styles/devices';
 import bg from '../../images/background-image.jpg';
 
 export const Wrapper = styled.div`
-    height: calc(100vh - 55px);
+    height: calc(100vh - 54px);
     width: 100vw;
 
     background-image: url(${bg});

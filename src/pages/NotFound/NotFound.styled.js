@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import bg from '../../images/background-image.jpg';
 
 export const Wrapper = styled.section`
-    height: calc(100vh - 123px);
+    height: calc(100vh - 122px);
     padding-top: 68px;
 
     background-image: url(${bg});
