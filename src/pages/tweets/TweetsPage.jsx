@@ -16,9 +16,13 @@ import {
     Section, 
     List, 
     Button, 
-    Error 
+    Error,
+    UpBtnContainer,
+    UpButton
 } from "./TweetsPage.styled";
 import { toast } from "react-toastify";
+import { BiUpArrow } from "react-icons/bi";
+import { animateScroll } from 'react-scroll';
 
 const TweetsPage = () => {
     const users = useSelector(selectTweets);
@@ -151,6 +155,7 @@ const TweetsPage = () => {
     // ===== upon Load More button click =====
     const handleLoadMore = async () => {
         const result = await filterCheck();
+        animateScroll.scrollMore(1000, {smooth: 'easeInOutQuint'});
 
         // if reached the end of the list
         if(result.length < itemsPerPage) {
@@ -205,6 +210,12 @@ const TweetsPage = () => {
                 {moreAvailable &&
                 <Button type="button" onClick={handleLoadMore}>Load More</Button>}
             </Section>
+
+            <UpBtnContainer>
+                <UpButton type="button" onClick={() => {animateScroll.scrollToTop({smooth: 'easeInOutQuint'})}}>
+                    <BiUpArrow style={{width: 40, height: 40}}/>
+                </UpButton>
+            </UpBtnContainer>
         </Wrapper>
     )
 }

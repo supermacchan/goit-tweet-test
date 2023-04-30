@@ -76,3 +76,49 @@ export const Error = styled.h2`
     margin: 50px 0;
     color: var(--dark-accent-text-color);
 `
+
+export const UpBtnContainer = styled.div`
+    cursor: pointer;
+
+    width: 80px;
+    height: 80px;
+
+    position: fixed;
+    bottom: 70px;
+    right: 50px;
+    z-index: 15;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+    background-color: var(--light-text-color);
+    opacity: 0.6;
+    box-shadow: 0px 4.39163px 4.39163px rgba(0, 0, 0, 0.59), inset 0px -2.19582px 4.39163px #AE7BE3, inset 0px 4.39163px 3.29372px #FBF8FF;
+
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover,
+    &:focus {
+        opacity: 1;
+    }
+`
+
+export const UpButton = styled.button`
+    cursor: pointer;
+
+    width: 60px;
+    height: 60px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-sizing: border-box;
+    border-radius: 50%;
+    border: 8px solid transparent;
+
+    background-color: var(--btn-hover-color);
+    color: var(--light-text-color);
+`
