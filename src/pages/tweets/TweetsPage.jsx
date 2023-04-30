@@ -7,6 +7,7 @@ import {
     selectFavorites,
     selectFilter
 } from "redux/selectors";
+import { setStatusFilter } from "redux/slices/filterSlice";
 import { tweetOperations } from "redux/operations";
 import Header from "components/Header/Header";
 import Filter from "components/Filter/Filter";
@@ -136,6 +137,7 @@ const TweetsPage = () => {
     // first render???
     useEffect(() => {
         const firstRender = async () => {
+            dispatch(setStatusFilter("show all"));
             const result = await dispatch(tweetOperations.fetchAllTweets({page: 1, itemsPerPage}));
             setItems(result.payload);
         };
