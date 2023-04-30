@@ -111,11 +111,11 @@ export const Avatar = styled.img`
 
 export const LowerPart = styled.div`
     text-align: center;
+    padding-top: 82px;
 `
 
 export const Tweets = styled.p`
-    margin-top: 82px;
-    margin-bottom: 0;
+    margin: 0;
 
     color: var(--light-text-color);
     font-size: 16px;
@@ -123,10 +123,8 @@ export const Tweets = styled.p`
     text-transform: uppercase;
 
     @media ${devices.tablet} {
-        margin-top: 62px;
         font-size: 20px;
     }
-
 `
 
 export const Followers = styled.p`
