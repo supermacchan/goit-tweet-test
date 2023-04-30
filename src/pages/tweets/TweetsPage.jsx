@@ -43,6 +43,7 @@ const TweetsPage = () => {
 
     // ===== First Render =====
     useEffect(() => {
+        // always shows first page of all tweets and sets filter to "show all"
         const firstRender = async () => {
             dispatch(setStatusFilter("show all"));
             const result = await dispatch(tweetOperations.fetchAllTweets({page: 1, itemsPerPage}));
@@ -93,20 +94,32 @@ const TweetsPage = () => {
     // ===== Fetch all tweets =====
     const fetchAll = async (page) => {
         const result = await dispatch(tweetOperations.fetchAllTweets({page, itemsPerPage}));
+
+        // render upon filter button click
         if (!page) {
             setItems(result.payload);
         }
-        setMoreAvailable(true);
+
+        // checks if Load More button is needed
+        if (result.payload.length < itemsPerPage) {
+            setMoreAvailable(false);
+        } else {
+            setMoreAvailable(true);
+        }
+
         return result.payload;
     }
 
     // ===== Fetch users that you already follow =====
     const fetchFollowed = async (page) => {
         const result = await dispatch(tweetOperations.fetchFollowed({favorites, page, itemsPerPage}));
+        
+        // render upon filter button click
         if (!page) {
             setItems(result.payload);
         }
 
+        // checks if Load More button is needed
         if (result.payload.length < itemsPerPage) {
             setMoreAvailable(false);
         } else {
@@ -119,10 +132,13 @@ const TweetsPage = () => {
     // ===== Fetch users that you don't follow =====
     const fetchNotFollowed = async (page) => {
         const result = await dispatch(tweetOperations.fetchNotFollowed({favorites, page, itemsPerPage}));
+        
+        // render upon filter button click
         if (!page) {
             setItems(result.payload);
         }
 
+        // checks if Load More button is needed
         if (result.payload.length < itemsPerPage) {
             setMoreAvailable(false);
         } else {
@@ -135,31 +151,22 @@ const TweetsPage = () => {
     // ===== upon Load More button click =====
     const handleLoadMore = async () => {
         const result = await filterCheck();
-            
-        if(result.length >= 6) {
-            setPage((prevState => prevState + 1));
-            setMoreAvailable(true);
-            setItems(prevState => {
-                return [...prevState, ...result];
-            })
 
-            return;
-        }
-
-        if(result.length === 0) {
+        // if reached the end of the list
+        if(result.length < itemsPerPage) {
             setPage(1);
             setMoreAvailable(false);
+
             toast("Looks like you've reached the end of the list");
+
             return;
         }
-          
+
+        setPage((prevState => prevState + 1));
+        setMoreAvailable(true);
         setItems(prevState => {
             return [...prevState, ...result];
         })
-
-        setPage(1);
-        setMoreAvailable(false);
-        toast("Looks like you've reached the end of the list");
     };
 
 
