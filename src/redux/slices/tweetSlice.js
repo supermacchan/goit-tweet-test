@@ -70,9 +70,7 @@ export const tweetSlice = createSlice({
         },
         // remove a follower
         [tweetOperations.removeFollower.fulfilled](state, action) {
-            console.log(action.payload);
             const updatedUser = state.items.find(user => user.id === action.payload.id);
-            console.log(updatedUser);
             updatedUser.followers = action.payload.followers;
             state.error = null;
             state.loading = false;
