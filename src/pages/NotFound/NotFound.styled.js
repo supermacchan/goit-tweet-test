@@ -14,7 +14,11 @@ export const Wrapper = styled.section`
 `
 
 export const Message = styled.h2`
-    margin: 50px 0;
+    margin: 50px 0 0 0;
 
     color: var(--dark-accent-text-color);
+`
+
+export const LoaderContainer = styled.div`
+    padding: 40px 0;
 `
