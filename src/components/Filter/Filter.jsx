@@ -41,7 +41,6 @@ const Filter = ({fetchAll, fetchFollowed, fetchNotFollowed}) => {
                             <ActiveButton 
                                 type="button"
                                 value={option}
-                                selected={filter === statusFilters[option]}
                                 onClick={(e) => {
                                     handleFilterChange(e.currentTarget.value);
                                     fetchCards(e);
@@ -58,7 +57,6 @@ const Filter = ({fetchAll, fetchFollowed, fetchNotFollowed}) => {
                         <Button 
                             type="button"
                             value={option}
-                            selected={filter === statusFilters[option]}
                             onClick={(e) => {
                                 handleFilterChange(e.currentTarget.value);
                                 fetchCards(e);
@@ -69,43 +67,6 @@ const Filter = ({fetchAll, fetchFollowed, fetchNotFollowed}) => {
                     </li>
                 )
             })}
-            {/* <li>
-                <Button 
-                    type="button"
-                    selected={filter === statusFilters.all}
-                    onClick={() => {
-                        handleFilterChange(statusFilters.all);
-                        fetchAll();
-                    }}
-                    style={isActive && {backgroundColor: "#fff"}}
-                >
-                    show all
-                </Button>
-            </li>
-            <li>
-                <Button 
-                    type="button"
-                    selected={filter === statusFilters.follow}
-                    onClick={() => {
-                        handleFilterChange(statusFilters.follow);
-                        fetchNotFollowed();
-                    }}
-                >
-                    follow
-                </Button>
-            </li>
-            <li>
-                <Button 
-                    type="button"
-                    selected={filter === statusFilters.following}
-                    onClick={() => {
-                        handleFilterChange(statusFilters.following);
-                        fetchFollowed();
-                    }}
-                >
-                    followings
-                </Button>
-            </li> */}
         </List>
     )
 }
