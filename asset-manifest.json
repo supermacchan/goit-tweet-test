@@ -1,9 +1,10 @@
 {
   "files": {
     "main.css": "/goit-tweet-test/static/css/main.e6396481.css",
-    "main.js": "/goit-tweet-test/static/js/main.c266cd39.js",
-    "static/js/700.cfc42983.chunk.js": "/goit-tweet-test/static/js/700.cfc42983.chunk.js",
-    "static/js/954.d96c3f9b.chunk.js": "/goit-tweet-test/static/js/954.d96c3f9b.chunk.js",
+    "main.js": "/goit-tweet-test/static/js/main.3c0ae888.js",
+    "static/js/700.edfb52bb.chunk.js": "/goit-tweet-test/static/js/700.edfb52bb.chunk.js",
+    "static/js/188.fc8ee965.chunk.js": "/goit-tweet-test/static/js/188.fc8ee965.chunk.js",
+    "static/js/877.cc79faee.chunk.js": "/goit-tweet-test/static/js/877.cc79faee.chunk.js",
     "static/js/482.fa65f856.chunk.js": "/goit-tweet-test/static/js/482.fa65f856.chunk.js",
     "static/media/background-image.jpg": "/goit-tweet-test/static/media/background-image.f7a53126fd2b0d3d37cc.jpg",
     "static/media/avatar.png": "/goit-tweet-test/static/media/avatar.afc746ee36a6129a59a6.png",
@@ -11,13 +12,14 @@
     "static/media/logo.svg": "/goit-tweet-test/static/media/logo.e917114d7945c04c85a8946a331d28b6.svg",
     "index.html": "/goit-tweet-test/index.html",
     "main.e6396481.css.map": "/goit-tweet-test/static/css/main.e6396481.css.map",
-    "main.c266cd39.js.map": "/goit-tweet-test/static/js/main.c266cd39.js.map",
-    "700.cfc42983.chunk.js.map": "/goit-tweet-test/static/js/700.cfc42983.chunk.js.map",
-    "954.d96c3f9b.chunk.js.map": "/goit-tweet-test/static/js/954.d96c3f9b.chunk.js.map",
+    "main.3c0ae888.js.map": "/goit-tweet-test/static/js/main.3c0ae888.js.map",
+    "700.edfb52bb.chunk.js.map": "/goit-tweet-test/static/js/700.edfb52bb.chunk.js.map",
+    "188.fc8ee965.chunk.js.map": "/goit-tweet-test/static/js/188.fc8ee965.chunk.js.map",
+    "877.cc79faee.chunk.js.map": "/goit-tweet-test/static/js/877.cc79faee.chunk.js.map",
     "482.fa65f856.chunk.js.map": "/goit-tweet-test/static/js/482.fa65f856.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6396481.css",
-    "static/js/main.c266cd39.js"
+    "static/js/main.3c0ae888.js"
   ]
 }
