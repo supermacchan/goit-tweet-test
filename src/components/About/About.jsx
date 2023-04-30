@@ -35,8 +35,7 @@ const About = () => {
                 </Link>
             </>
             : <Encouragement>Sign in to get started!</Encouragement>
-        }
-            
+            }
             
         </Container>
     )
