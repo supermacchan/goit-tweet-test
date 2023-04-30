@@ -78,4 +78,11 @@ export const LogoutBtn = styled.button`
     border: none;
     background-color: transparent;
     color: var(--dark-text-color);
+
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover,
+    &:focus {
+        color: var(--dark-accent-text-color);
+    }
 `
