@@ -167,7 +167,13 @@ const TweetsPage = () => {
             setItems(result.payload);
         }
         // setItems(result.payload);
-        setMoreAvailable(true);
+        if (result.payload.length < itemsPerPage) {
+            setMoreAvailable(false);
+        } else {
+            setMoreAvailable(true);
+        }
+
+        // setMoreAvailable(true);
         console.log("fetch followed");
         console.log(result.payload);
         console.log(items);
@@ -179,8 +185,14 @@ const TweetsPage = () => {
         if (!page) {
             setItems(result.payload);
         }
+
+        if (result.payload.length < itemsPerPage) {
+            setMoreAvailable(false);
+        } else {
+            setMoreAvailable(true);
+        }
         // setItems(result.payload);
-        setMoreAvailable(true);
+        // setMoreAvailable(true);
         return result.payload;
     }
 
@@ -194,9 +206,10 @@ const TweetsPage = () => {
                     fetchNotFollowed={fetchNotFollowed}
                 />
                 {/* {isLoading && <Loader />} */}
-                {error && <Error>Oops! Nothing was found.</Error>}
+                {error && <Error>Oops! Something went wrong.</Error>}
+
                 <List>
-                    {items.map(user => {
+                    {!error && items.map(user => {
                         return (
                             <TweetCard
                                 key={user.id}
@@ -209,8 +222,8 @@ const TweetsPage = () => {
                         )   
                     })}
                 </List>
-                {moreAvailable
-                && <Button type="button" onClick={handleLoadMore}>Load More</Button>}
+                {moreAvailable &&
+                <Button type="button" onClick={handleLoadMore}>Load More</Button>}
             </Section>
         </Wrapper>
     )
