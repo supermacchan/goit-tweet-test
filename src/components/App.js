@@ -15,10 +15,13 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Layout />}>
+          {/* Main Page */}
           <Route index element={<HomePage />} />
+          {/* Tweet Page */}
           <Route path="/tweets" element={
             <PrivateRoute component={TweetsPage} redirectTo="/"/>
           } />
+          {/* 404 Not Found Page with delayed redirect */}
           <Route path="*" element={
             <NotFoundPage component={NotFound} redirectTo="/" />
           } />

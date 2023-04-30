@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { signIn } from "redux/slices/userSlice";
+import { toast } from "react-toastify";
 import { 
     Form, 
     MainTitle, 
@@ -16,6 +17,7 @@ const WelcomeForm = () => {
     const onFormSubmit = e => {
         e.preventDefault();
         dispatch(signIn(name));
+        toast(`Welcome, ${name}!`);
         reset();
     }
 

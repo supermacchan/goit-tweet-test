@@ -44,8 +44,6 @@ const fetchFollowed = createAsyncThunk(
             
             const result = followed.slice(firstIndex, secondIndex);
             return result;
-
-            // return followed;
         } catch (err) {
             return thunkAPI.rejectWithValue(err.message);
         }
@@ -69,8 +67,6 @@ const fetchNotFollowed = createAsyncThunk(
             
             const result = notFollowed.slice(firstIndex, secondIndex);
             return result;
-
-            // return notFollowed;
         } catch (err) {
             return thunkAPI.rejectWithValue(err.message);
         }
