@@ -4,6 +4,7 @@ import { selectAuth, selectUser } from "redux/selectors";
 import { logOut } from "redux/slices/userSlice";
 import { 
     HeaderContainer,
+    Content,
     HomePageLink,
     UserInfo,
     AvatarContainer,
@@ -25,27 +26,29 @@ const Header = () => {
 
     return (
         <HeaderContainer>
-            <Link to="/" style={{textDecoration: "none"}}>
-                <HomePageLink>
-                    Back to Home Page
-                </HomePageLink>
-            </Link>
-            <UserInfo>
-                <AvatarContainer>
-                    <Img src={avatar} alt="user avatar" />
-                </AvatarContainer>
-                <Greeting>
-                    { auth
-                    ? `Hi, ${name}!`
-                    : "Hi, stranger!"
+            <Content>
+                <Link to="/" style={{textDecoration: "none"}}>
+                    <HomePageLink>
+                        Back to Home Page
+                    </HomePageLink>
+                </Link>
+                <UserInfo>
+                    <AvatarContainer>
+                        <Img src={avatar} alt="user avatar" />
+                    </AvatarContainer>
+                    <Greeting>
+                        { auth
+                        ? `Hi, ${name}!`
+                        : "Hi, stranger!"
+                        }
+                    </Greeting>
+                    { auth && 
+                        <LogoutBtn type="button" onClick={onLogout}>
+                            <RiLogoutBoxLine style={{height: "30px", width: "20px"}}/>
+                        </LogoutBtn>
                     }
-                </Greeting>
-                { auth && 
-                    <LogoutBtn type="button" onClick={onLogout}>
-                        <RiLogoutBoxLine style={{height: "30px", width: "20px"}}/>
-                    </LogoutBtn>
-                }
-            </UserInfo>
+                </UserInfo>
+            </Content>
         </HeaderContainer>
     )
 }

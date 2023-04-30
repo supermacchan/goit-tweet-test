@@ -22,6 +22,22 @@ export const HeaderContainer = styled.header`
     }
 `
 
+export const Content = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+    padding: 8px 20px;
+    box-sizing: border-box;
+
+    @media ${devices.tablet} {
+        padding: 8px 40px;
+    }
+`
+
 export const HomePageLink = styled.span`
     margin: 0 auto;
 
