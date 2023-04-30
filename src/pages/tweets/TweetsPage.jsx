@@ -19,6 +19,7 @@ import {
     Error 
 } from "./TweetsPage.styled";
 import { toast } from "react-toastify";
+import { animateScroll } from 'react-scroll';
 
 const TweetsPage = () => {
     const users = useSelector(selectTweets);
@@ -151,6 +152,7 @@ const TweetsPage = () => {
     // ===== upon Load More button click =====
     const handleLoadMore = async () => {
         const result = await filterCheck();
+        animateScroll.scrollMore(1000, {smooth: 'easeInOutQuint', delay: 0, duration: 1000});
 
         // if reached the end of the list
         if(result.length < itemsPerPage) {
