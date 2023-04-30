@@ -159,6 +159,12 @@ const TweetsPage = () => {
 
             toast("Looks like you've reached the end of the list");
 
+            if (result.length !== 0) {
+                setItems(prevState => {
+                    return [...prevState, ...result];
+                })
+            }
+
             return;
         }
 
