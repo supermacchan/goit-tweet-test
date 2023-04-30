@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectFavorites } from "redux/selectors";
 import { follow, unfollow } from "redux/slices/userSlice";
 import { tweetOperations } from "redux/operations";
+import { formatNumber } from "utils/helpers/formatNumber";
 import { 
     Card,
     UpperPart,
@@ -54,8 +55,8 @@ const TweetCard = ({id, name, avatar, tweets, followers}) => {
                 <AvatarContainer>
                     <Avatar src={avatar} alt="user avatar" />
                 </AvatarContainer>
-                <Tweets>{tweets} tweets</Tweets>
-                <Followers>{followersCount} followers</Followers>
+                <Tweets>{formatNumber(tweets)} tweets</Tweets>
+                <Followers>{formatNumber(followersCount)} followers</Followers>
                 {isFollowed
                 ? <ActiveButton type="button" onClick={onFollowClick}>Following</ActiveButton>
                 : <Button type="button" onClick={onFollowClick}>Follow</Button>}
