@@ -86,10 +86,9 @@ export const AvatarContainer = styled.div`
     object-fit: contain;
     overflow: hidden;
 
-    box-sizing: border-box;
     border-radius: 50%;
-    border: 8px solid var(--light-text-color);
-    box-shadow: 0px 4.39163px 4.39163px rgba(0, 0, 0, 0.06), inset 0px -2.19582px 4.39163px #AE7BE3, inset 0px 4.39163px 3.29372px #FBF8FF;
+    background-color: var(--light-text-color);
+    box-shadow: 0px 4.39163px 4.39163px rgba(0, 0, 0, 0.09), inset 0px -2.19582px 4.39163px #AE7BE3, inset 0px 4.39163px 3.29372px #FBF8FF;
 
     position: absolute;
     top: 162px;
@@ -104,6 +103,10 @@ export const AvatarContainer = styled.div`
 
 export const Avatar = styled.img`
     width: 100%;
+    
+    box-sizing: border-box;
+    border-radius: 50%;
+    border: 8px solid transparent;
 `
 
 export const LowerPart = styled.div`
