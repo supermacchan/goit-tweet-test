@@ -13,6 +13,7 @@ import {
     LogoutBtn
 } from "./Header.styled";
 import { RiLogoutBoxLine } from "react-icons/ri";
+import { toast } from "react-toastify";
 import avatar from "../../images/avatar.png";
 
 const Header = () => {
@@ -22,6 +23,7 @@ const Header = () => {
 
     const onLogout = () => {
         dispatch(logOut());
+        toast("You have successfully logged out");
     }
 
     return (
