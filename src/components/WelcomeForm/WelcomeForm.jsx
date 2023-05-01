@@ -33,7 +33,8 @@ const WelcomeForm = () => {
                 type="text"
                 placeholder="Enter your name" 
                 value={name}
-                onChange={(e) => setName(e.currentTarget.value)}
+                onChange={(e) => setName(e.currentTarget.value.trim())}
+                required
             />
             <Button type="sumbit">Send</Button>
         </Form>
