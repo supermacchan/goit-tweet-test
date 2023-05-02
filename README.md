@@ -44,8 +44,7 @@ The deployment status of the last commit is displayed by an icon next to its ide
 - **Green color** - deployment completed successfully.
 - **Red color** - an error occurred during linting, compilation or deployment.
 
-More detailed information about the status can be viewed by clicking on the icon, then in
-in the drop-down window go to the `Details` link.
+More detailed information about the status can be viewed by clicking on the icon, then in the drop-down window go to the `Details` link.
 
 ### Live page
 
